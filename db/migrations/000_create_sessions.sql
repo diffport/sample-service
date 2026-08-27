@@ -1,0 +1,20 @@
+CREATE TABLE workspaces (
+  id BIGINT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+  name VARCHAR(120) NOT NULL,
+  created_at DATETIME NOT NULL
+);
+
+CREATE TABLE sessions (
+  id BIGINT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+  workspace_id BIGINT UNSIGNED NOT NULL,
+  token VARCHAR(255) NOT NULL,
+  legacy_token_id BIGINT UNSIGNED NULL,
+  region VARCHAR(8) NULL,
+  expires_at DATETIME NOT NULL,
+  CONSTRAINT fk_sessions_workspace FOREIGN KEY (workspace_id) REFERENCES workspaces(id)
+);
+
+CREATE TABLE legacy_tokens (
+  id BIGINT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+  value VARCHAR(255) NOT NULL
+);
