@@ -6,3 +6,8 @@ some are authored by bot identities, and some carry no signal at all.
 
 Those last ones are the point. Diffport reports them as **untraced** rather than
 assuming a person wrote them.
+
+## Provenance
+
+This repository is read by Diffport. Every pull request is resolved to its true
+authorship — which agent, which model, or a person — with the evidence attached.
